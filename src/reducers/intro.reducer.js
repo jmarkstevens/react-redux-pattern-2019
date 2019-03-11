@@ -7,7 +7,7 @@ const initState = {
 const IntroState = (state = initState, action) => {
   switch (action.type) {
     case CHANGE_TITLE:
-      return Object.assign({}, state, { title: action.payload })
+      return Object.assign({}, state, { title: action.newtitle })
     default:
       return state
   }

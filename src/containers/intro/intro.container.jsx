@@ -15,7 +15,9 @@ class IntroContainer extends React.Component {
 
   render() {
     const { IntroTitle } = this.props
-    return <IntroComponent title={IntroTitle} />
+    return (
+      <IntroComponent changeTitle={this.handleChangeTitle} title={IntroTitle} />
+    )
   }
 }
 

@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { Button, Container, Title } from './intro.styled'
+
 const IntroComponent = ({ changeTitle, title }) => {
   return (
-    <div>
-      <h3>{title}</h3>
-      <button onClick={changeTitle} type="button">
+    <Container>
+      <Title>{title}</Title>
+      <Button onClick={changeTitle} type="button">
         Change title
-      </button>
-    </div>
+      </Button>
+    </Container>
   )
 }
 

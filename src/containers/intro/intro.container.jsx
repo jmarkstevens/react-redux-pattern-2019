@@ -2,19 +2,24 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 
+import IntroComponent from '../../components/intro'
+import { titleSelector } from '../../selectors'
+
 const IntroContainer = props => {
-  const { allState } = props
-  // eslint-disable-next-line no-console
-  console.log('IntroContainer allState:', allState)
-  return <div />
+  const { IntroTitle } = props
+  return <IntroComponent IntroTitle={IntroTitle} />
+}
+
+IntroContainer.defaultProps = {
+  IntroTitle: 'empty'
 }
 
 IntroContainer.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  allState: PropTypes.any.isRequired
+  IntroTitle: PropTypes.string
 }
+
 const mapStateToProps = state => ({
-  allState: state
+  IntroTitle: titleSelector(state)
 })
 
 const mapDispatchToProps = {}

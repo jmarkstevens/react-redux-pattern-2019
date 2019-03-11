@@ -9,5 +9,5 @@ ReactDom.render(
   <Provider store={AppStore}>
     <IntroContainer />
   </Provider>,
-  document.getElementById('react')
+  document.getElementById('app')
 )

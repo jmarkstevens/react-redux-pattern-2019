@@ -2,12 +2,21 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { ChangeTitle } from '../../actions'
 import IntroComponent from '../../components/intro'
 import { titleSelector } from '../../selectors'
 
-const IntroContainer = props => {
-  const { IntroTitle } = props
-  return <IntroComponent IntroTitle={IntroTitle} />
+class IntroContainer extends React.Component {
+  handleChangeTitle = () => {
+    const { changeTitle } = this.props
+    const newTitle = `Title reset at ${new Date().toLocaleTimeString()}`
+    changeTitle(newTitle)
+  }
+
+  render() {
+    const { IntroTitle } = this.props
+    return <IntroComponent title={IntroTitle} />
+  }
 }
 
 IntroContainer.defaultProps = {
@@ -15,6 +24,7 @@ IntroContainer.defaultProps = {
 }
 
 IntroContainer.propTypes = {
+  changeTitle: PropTypes.func.isRequired,
   IntroTitle: PropTypes.string
 }
 
@@ -22,7 +32,13 @@ const mapStateToProps = state => ({
   IntroTitle: titleSelector(state)
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = dispatch => {
+  return {
+    changeTitle: newTitle => {
+      dispatch(ChangeTitle(newTitle))
+    }
+  }
+}
 
 export default connect(
   mapStateToProps,

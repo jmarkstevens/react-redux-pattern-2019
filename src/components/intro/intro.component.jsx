@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const IntroComponent = ({ IntroTitle }) => {
+const IntroComponent = ({ title }) => {
   return (
     <div>
-      {IntroTitle}
+      {title}
     </div>
   )
 }
 
 IntroComponent.propTypes = {
-  IntroTitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default IntroComponent

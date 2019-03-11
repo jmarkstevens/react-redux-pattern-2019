@@ -1,20 +1,9 @@
-import 'whatwg-fetch'
+export const CHANGE_TITLE = 'CHANGE_TITLE'
 
-const jsonHeader = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json'
-}
-
-export function apiSetData(data) {
-  return dispatch => {
-    fetch('/routes/setData', {
-      method: 'POST',
-      headers: jsonHeader,
-      body: JSON.stringify(data)
-    }).then(() => {
-      fetch('/routes/getData')
-        .then(response => response.json())
-        .then(json => dispatch({ type: 'GOT_DATA', payload: json }))
-    })
+// eslint-disable-next-line import/prefer-default-export
+export const ChangeTitle = newtitle => {
+  return {
+    type: CHANGE_TITLE,
+    newtitle
   }
 }

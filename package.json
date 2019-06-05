@@ -5,8 +5,8 @@
   "author": "J Mark Stevens",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config wp/wp.config.js --mode development",
-    "build": "webpack --config wp/wp.config.js --mode production"
+    "start": "webpack-dev-server --config wp.config.js --mode development",
+    "build": "webpack --config wp.config.js --mode production"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
